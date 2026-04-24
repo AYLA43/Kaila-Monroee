@@ -354,13 +354,13 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:28px 40
   </div>
 </section>
 
-<!-- COACH SECTION - FULLY REPLACED -->
+<!-- COACH SECTION -->
 <section class="coach-section">
   <div class="container">
     <span class="sec-tag">Your Coach</span>
     <div class="coach-wrap" style="margin-top:32px">
       
-      <!-- CIRCULAR IMAGE BOX -->
+      <!-- CIRCULAR IMAGE -->
       <div class="coach-img-box" style="
         width:280px;
         height:280px;
@@ -372,63 +372,121 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:28px 40
         position:relative;
         background:var(--card);
       ">
-        <!-- Placeholder (shown when no image) -->
-        <div class="coach-placeholder" id="coachPlaceholder" style="
-          position:absolute;
-          inset:0;
-          display:flex;
-          flex-direction:column;
-          align-items:center;
-          justify-content:center;
-          gap:12px;
-          cursor:pointer;
-          background:var(--card);
-          z-index:2;
-        ">
-          <input type="file" accept="image/*" onchange="loadPhoto(event)" style="
-            position:absolute;
-            inset:0;
-            opacity:0;
-            cursor:pointer;
-            width:100%;
-            height:100%;
-            z-index:3;
-          ">
-          <div class="coach-av" style="
-            width:80px;
-            height:80px;
-            border:2px solid var(--border2);
-            border-radius:50%;
-            background:var(--card2);
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-size:36px;
-          ">&#128100;</div>
-          <div style="font-size:11px;font-weight:700;color:var(--blue-bright);text-transform:uppercase;letter-spacing:.08em;">Click to Upload</div>
-        </div>
-        
-        <!-- The Image (hidden by default, shown after upload) -->
-        <img id="coachImg" src="coach.jpg" alt="Coach" style="
-          width:100%;
-          height:100%;
-          object-fit:cover;
-          display:none;
-          position:relative;
-          z-index:1;
-        ">
+        <img src="coach.jpg" 
+             alt="Kaila Monroe" 
+             style="
+               width:100%;
+               height:100%;
+               object-fit:cover;
+               display:block;
+             ">
       </div>
       
-      <div class="coach-content">
-        <div class="coach-name">Kaila Monroe</div>
-        <div class="coach-role">Digital Products Expert &amp; Online Business Coach</div>
-        <p class="coach-bio">I went from <strong>earning nothing online</strong> to consistently making <strong>$10K+ per month</strong> selling digital products — with no big budget, no audience, and no prior experience.</p>
-        <p class="coach-bio">I built this course to give you the <strong>exact system I used</strong>. Not theory. Not fluff. Just what works right now in the real market.</p>
-        <div class="coach-nums">
-          <div class="cn"><div class="n">$10K+</div><div class="l">Monthly Revenue</div></div>
-          <div class="cn"><div class="n">500+</div><div class="l">Students Helped</div></div>
-          <div class="cn"><div class="n">3+ Yrs</div><div class="l">Experience</div></div>
+      <!-- COACH CONTENT -->
+      <div class="coach-content" style="flex:1;min-width:260px;padding-top:8px">
+        
+        <div class="coach-name" style="
+          font-size:48px;
+          font-weight:900;
+          color:var(--white);
+          line-height:1.1;
+          letter-spacing:-0.03em;
+          margin-bottom:8px;
+        ">
+          Kaila Monroe
         </div>
+        
+        <div class="coach-role" style="
+          font-size:14px;
+          color:var(--blue-bright);
+          font-weight:700;
+          text-transform:uppercase;
+          letter-spacing:0.12em;
+          margin-bottom:24px;
+          display:flex;
+          align-items:center;
+          gap:10px;
+        ">
+          <span style="display:inline-block;width:24px;height:2px;background:var(--blue-bright);border-radius:2px;"></span>
+          Digital Products Expert & Online Business Coach
+        </div>
+        
+        <div class="coach-bio-wrap" style="display:flex;flex-direction:column;gap:16px;margin-bottom:28px;">
+          <p class="coach-bio" style="
+            font-size:17px;
+            color:var(--text);
+            line-height:1.8;
+            margin:0;
+          ">
+            I went from <strong style="color:var(--white);font-weight:800;">earning nothing online</strong> to consistently making <strong style="color:var(--blue-bright);font-weight:800;">$10K+ per month</strong> selling digital products — with no big budget, no audience, and no prior experience.
+          </p>
+          <p class="coach-bio" style="
+            font-size:17px;
+            color:var(--text);
+            line-height:1.8;
+            margin:0;
+          ">
+            I built this course to give you the <strong style="color:var(--white);font-weight:800;">exact system I used</strong>. Not theory. Not fluff. Just what works right now in the real market.
+          </p>
+        </div>
+        
+        <div class="coach-nums" style="
+          display:flex;
+          gap:40px;
+          flex-wrap:wrap;
+          padding-top:20px;
+          border-top:1px solid var(--border);
+        ">
+          <div class="cn" style="text-align:center;">
+            <div class="n" style="
+              font-size:36px;
+              font-weight:900;
+              color:var(--blue-bright);
+              line-height:1;
+              letter-spacing:-0.02em;
+            ">$10K+</div>
+            <div class="l" style="
+              font-size:11px;
+              color:var(--muted);
+              text-transform:uppercase;
+              letter-spacing:0.1em;
+              margin-top:6px;
+            ">Monthly Revenue</div>
+          </div>
+          <div class="cn" style="text-align:center;">
+            <div class="n" style="
+              font-size:36px;
+              font-weight:900;
+              color:var(--blue-bright);
+              line-height:1;
+              letter-spacing:-0.02em;
+            ">500+</div>
+            <div class="l" style="
+              font-size:11px;
+              color:var(--muted);
+              text-transform:uppercase;
+              letter-spacing:0.1em;
+              margin-top:6px;
+            ">Students Helped</div>
+          </div>
+          <div class="cn" style="text-align:center;">
+            <div class="n" style="
+              font-size:36px;
+              font-weight:900;
+              color:var(--blue-bright);
+              line-height:1;
+              letter-spacing:-0.02em;
+            ">3+ Yrs</div>
+            <div class="l" style="
+              font-size:11px;
+              color:var(--muted);
+              text-transform:uppercase;
+              letter-spacing:0.1em;
+              margin-top:6px;
+            ">Experience</div>
+          </div>
+        </div>
+        
       </div>
     </div>
   </div>

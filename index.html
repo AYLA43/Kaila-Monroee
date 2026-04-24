@@ -102,54 +102,9 @@ h2 .blue{color:var(--blue-bright)}
 .step-outcome{margin-top:12px;font-size:15px;color:var(--text)}
 .step-outcome span{color:var(--blue-bright);font-weight:800}
 
-/* COACH */
+/* COACH - STYLE ONLY */
 .coach-section{background:var(--deep);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .coach-wrap{display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap}
-.coach-img-box{width:260px;height:320px;flex-shrink:0;border:1px solid var(--border2);border-radius:14px;overflow:hidden;position:relative;background:var(--card)}
-.coach-img-box img{width:100%;height:100%;object-fit:cover;display:none}
-.coach-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;cursor:pointer;position:relative}
-.coach-placeholder input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
-.coach-av{width:72px;height:72px;border:2px solid var(--border2);border-radius:50%;background:var(--card2);display:flex;align-items:center;justify-content:center;font-size:32px}
-.coach-upload-hint{font-size:12px;font-weight:700;color:var(--blue-bright);text-transform:uppercase;letter-spacing:.08em;text-align:center}
-.coach-upload-sub{font-size:11px;color:var(--muted);text-align:center}
-.coach-content{flex:1;min-width:260px;padding-top:8px}
-.coach-name{font-size:42px;font-weight:900;color:var(--white);line-height:1;letter-spacing:-.03em;margin-bottom:6px}
-.coach-role{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;padding-bottom:20px;border-bottom:1px solid var(--border);margin-bottom:22px}
-.coach-bio{font-size:16px;color:var(--text);line-height:1.75;margin-bottom:14px}
-.coach-bio strong{color:var(--white)}
-.coach-nums{display:flex;gap:36px;margin-top:28px;flex-wrap:wrap}
-.cn .n{font-size:36px;font-weight:900;color:var(--blue-bright);line-height:1;letter-spacing:-.02em}
-.cn .l{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-top:3px}
-  .coach-img-box {
-  position: relative;
-  width: 280px;
-  height: 280px;
-  flex-shrink: 0;
-}
-
-.coach-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%; /* هذا يجعلها دائرية */
-  border: 4px solid #fff;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-  display: block;
-}
-
-/* إخفاء placeholder عند وجود صورة */
-.coach-img-box:has(.coach-img[src]:not([src=""])) .coach-placeholder {
-  display: none;
-}
-
-/* للموبايل */
-@media (max-width: 768px) {
-  .coach-img-box {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto 24px;
-  }
-}
 
 /* RESULTS */
 .results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
@@ -221,8 +176,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:28px 40
 @media(max-width:700px){
   nav{padding:14px 18px}
   .nums-bar{gap:28px}
-  .coach-wrap{flex-direction:column}
-  .coach-img-box{width:100%;height:240px}
+  .coach-wrap{flex-direction:column;align-items:center}
   section{padding:60px 16px}
   .hero h1{font-size:clamp(48px,16vw,80px)}
 }
@@ -400,18 +354,71 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:28px 40
   </div>
 </section>
 
-<!-- COACH SECTION -->
+<!-- COACH SECTION - FULLY REPLACED -->
 <section class="coach-section">
   <div class="container">
     <span class="sec-tag">Your Coach</span>
     <div class="coach-wrap" style="margin-top:32px">
-      <div class="coach-img-box">
-        <div class="coach-placeholder" id="coachPlaceholder">
-          <input type="file" accept="image/*" onchange="loadPhoto(event)">
-          <div class="coach-av">&#128100;</div>
+      
+      <!-- CIRCULAR IMAGE BOX -->
+      <div class="coach-img-box" style="
+        width:280px;
+        height:280px;
+        flex-shrink:0;
+        border-radius:50%;
+        overflow:hidden;
+        border:3px solid var(--border2);
+        box-shadow:0 0 40px rgba(59,130,246,.15), 0 0 80px rgba(59,130,246,.05);
+        position:relative;
+        background:var(--card);
+      ">
+        <!-- Placeholder (shown when no image) -->
+        <div class="coach-placeholder" id="coachPlaceholder" style="
+          position:absolute;
+          inset:0;
+          display:flex;
+          flex-direction:column;
+          align-items:center;
+          justify-content:center;
+          gap:12px;
+          cursor:pointer;
+          background:var(--card);
+          z-index:2;
+        ">
+          <input type="file" accept="image/*" onchange="loadPhoto(event)" style="
+            position:absolute;
+            inset:0;
+            opacity:0;
+            cursor:pointer;
+            width:100%;
+            height:100%;
+            z-index:3;
+          ">
+          <div class="coach-av" style="
+            width:80px;
+            height:80px;
+            border:2px solid var(--border2);
+            border-radius:50%;
+            background:var(--card2);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:36px;
+          ">&#128100;</div>
+          <div style="font-size:11px;font-weight:700;color:var(--blue-bright);text-transform:uppercase;letter-spacing:.08em;">Click to Upload</div>
         </div>
-        <img id="photo1" src="coach.jpg" alt="Coach">
+        
+        <!-- The Image (hidden by default, shown after upload) -->
+        <img id="coachImg" src="coach.jpg" alt="Coach" style="
+          width:100%;
+          height:100%;
+          object-fit:cover;
+          display:none;
+          position:relative;
+          z-index:1;
+        ">
       </div>
+      
       <div class="coach-content">
         <div class="coach-name">Kaila Monroe</div>
         <div class="coach-role">Digital Products Expert &amp; Online Business Coach</div>
